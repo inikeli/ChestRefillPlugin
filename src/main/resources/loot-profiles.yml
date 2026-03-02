@@ -1,0 +1,10 @@
+village:
+  STONE: 50
+  DIAMOND: 5
+  IRON_INGOT: 30
+  GOLD_INGOT: 15
+
+dungeon:
+  COBBLESTONE: 40
+  IRON_SWORD: 20
+  ARROW: 40
