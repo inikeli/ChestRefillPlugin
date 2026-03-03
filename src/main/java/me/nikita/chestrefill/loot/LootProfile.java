@@ -5,6 +5,8 @@ import org.bukkit.Material;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.Random;
+import org.bukkit.inventory.Inventory;
+import org.bukkit.inventory.ItemStack;
 
 public class LootProfile {
 
@@ -37,6 +39,26 @@ public class LootProfile {
 
         return null; // на случай ошибки
     }
+    public void fillInventory(Inventory inventory) {
+
+        inventory.clear();
+
+        if (lootMap.isEmpty()) return;
+
+        int itemsToAdd = 5 + random.nextInt(6);
+        // от 5 до 10 предметов (можешь изменить)
+
+        for (int i = 0; i < itemsToAdd; i++) {
+
+            Material material = getRandomLoot();
+            if (material == null) continue;
+
+            ItemStack item = new ItemStack(material, 1);
+
+            inventory.addItem(item);
+        }
+    }
+
 
     public Map<Material, Integer> getLootMap() {
         return lootMap;

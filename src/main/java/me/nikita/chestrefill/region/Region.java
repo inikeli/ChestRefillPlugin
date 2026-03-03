@@ -2,9 +2,26 @@ package me.nikita.chestrefill.region;
 
 import org.bukkit.Location;
 import org.bukkit.World;
+import java.util.ArrayList;
+import java.util.List;
+import org.bukkit.Bukkit;
 
 public class Region {
 
+    private final List<Location> chests = new ArrayList<>();
+    public List<Location> getChests() {
+        return chests;
+    }
+    public World getWorld() {
+        return Bukkit.getWorld(worldName);
+    }
+
+    public void addChest(Location location) {
+        chests.add(location);
+    }
+    public void clearChests() {
+        chests.clear();
+    }
     private final String name;
     private final String profile;
     private final String worldName;

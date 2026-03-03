@@ -5,10 +5,13 @@ api-version: 1.21
 
 commands:
   chestrefill:
-    description: Main command
-    usage: /chestrefill set <x1> <y1> <z1> <x2> <y2> <z2>
+    description: Управление регионами и перезаполнением сундуков
+    usage: |
+      /chestrefill set <name> <profile> <x1> <y1> <z1> <x2> <y2> <z2>
+      /chestrefill refill <region>
     permission: chestrefill.admin
 
 permissions:
   chestrefill.admin:
+    description: Доступ к управлению регионами
     default: op

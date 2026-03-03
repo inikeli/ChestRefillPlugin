@@ -13,11 +13,15 @@ public final class ChestRefillPlugin extends JavaPlugin {
     @Override
     public void onEnable() {
 
-        saveDefaultConfig(); // сохраняем config.yml
-        regionManager = new RegionManager(this);
+        saveDefaultConfig();
+
+
         lootProfileManager = new LootProfileManager(this);
 
-        // регистрируем команду и передаем оба менеджера
+
+        regionManager = new RegionManager(this, lootProfileManager);
+
+        // 3️⃣ Регистрируем команду
         getCommand("chestrefill")
                 .setExecutor(new ChestRefillCommand(regionManager, lootProfileManager));
 
@@ -29,7 +33,11 @@ public final class ChestRefillPlugin extends JavaPlugin {
         getLogger().info("ChestRefill disabled!");
     }
 
-    // геттеры для менеджеров, если нужно из других классов
-    public RegionManager getRegionManager() { return regionManager; }
-    public LootProfileManager getLootProfileManager() { return lootProfileManager; }
+    public RegionManager getRegionManager() {
+        return regionManager;
+    }
+
+    public LootProfileManager getLootProfileManager() {
+        return lootProfileManager;
+    }
 }
